@@ -14,6 +14,7 @@ onready var status_label := $Clickable/Organizer/Info/Banners/Status/Label as La
 
 
 func _ready() -> void:
+	apply_skin()
 	chart_info.text = chart.chart_info()
 	song_info.text = chart.song_info()
 	rating_label.text = "?"
