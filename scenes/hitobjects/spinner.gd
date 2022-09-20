@@ -35,8 +35,6 @@ func _ready() -> void:
 	## The [PropertyTweener] used to fade in this [Spinner].
 	var _tween := _tween_modulate(1)
 
-	.activate()
-
 
 ## Applies the [member root_viewport]'s [SkinManager] to this [Node]. This method is seen in all [Node]s in the "Skinnables" group.
 func apply_skin() -> void:
@@ -61,8 +59,8 @@ func auto_hit(_hit_time: float, _hit_left: bool) -> int:
 
 
 ## Initialize [Spinner] variables.
-func change_properties(new_timing: float, new_length: float, new_hits: int) -> void:
-	.ini(new_timing, 0, new_length)
+func change_properties(new_timing: float, new_length: float, new_hits: int, new_gameplay: Node) -> void:
+	.ini(new_timing, 0, new_length, new_gameplay)
 	_needed_hits = int(max(1, new_hits))
 
 

@@ -32,6 +32,9 @@ var _score_indicator_tween := SceneTreeTween.new()
 var _timing_indicator_tween := SceneTreeTween.new()
 
 ## Comment
+var _thread := Thread.new()
+
+## Comment
 var _active := false
 
 ## Comment
@@ -123,70 +126,9 @@ func _ready() -> void:
 		return
 
 	root_viewport.chart.change_chart_properties(_f.get_line(), _f.get_line(), _f.get_line(), _f.get_line(), _f.get_line(), _f.get_line(), _f.get_line(), _f.get_line())
+	if _thread.start(self, "load_objects", _f):
+		push_warning("Attempted to load HitObjects in Gameplay.")
 
-	## Comment
-	var cur_bpm := -1.0
-
-	while _f.get_position() < _f.get_len():
-		## Comment
-		var line_data := _f.get_csv_line()
-
-		## Comment
-		var timing := float(line_data[0])
-
-		## Comment
-		var total_cur_sv := float(line_data[1]) * cur_bpm * 5.7
-
-		## Comment
-		var note_type := int(line_data[2])
-
-		if note_type > ChartLoader.NoteType.BARLINE:
-			_first_note_time = min(_first_note_time if _first_note_time + 1 else timing, timing)
-			_last_note_time = max(_last_note_time if _last_note_time + 1 else timing, timing)
-
-		match note_type:
-			ChartLoader.NoteType.BARLINE:
-				## Comment
-				var hit_object := root_viewport.bar_line_object.instance() as BarLine
-
-				hit_object.change_properties(timing, total_cur_sv)
-				add_object(hit_object)
-
-			ChartLoader.NoteType.DON, ChartLoader.NoteType.KAT:
-				## Comment
-				var hit_object := root_viewport.note_object.instance() as Note
-
-				hit_object.change_properties(timing, total_cur_sv, int(line_data[2]) == int(ChartLoader.NoteType.KAT), bool(int(line_data[3])))
-				add_object(hit_object)
-				GlobalTools.send_signal(self, "new_marker_added", hit_object, "add_marker")
-
-			ChartLoader.NoteType.ROLL:
-				## Comment
-				var hit_object := root_viewport.roll_object.instance() as Roll
-
-				hit_object.change_properties(timing, total_cur_sv, float(line_data[3]), bool(int(line_data[4])), cur_bpm)
-				add_object(hit_object)
-
-			ChartLoader.NoteType.SPINNER:
-				## Comment
-				var hit_object := root_viewport.spinner_warn_object.instance() as SpinnerWarn
-
-				hit_object.change_properties(timing, total_cur_sv, float(line_data[3]), cur_bpm)
-				add_object(hit_object)
-				GlobalTools.send_signal(self, "object_added", hit_object, "add_object")
-
-			ChartLoader.NoteType.TIMING_POINT:
-				cur_bpm = float(line_data[1])
-
-				## Comment
-				var hit_object := root_viewport.timing_point_object.instance() as TimingPoint
-
-				hit_object.change_properties(timing, int(line_data[3]), cur_bpm)
-				add_object(hit_object)
-
-	get_tree().call_group("HitObjects", "apply_skin")
-	get_tree().call_group("HitObjects", "connect", "audio_played", self, "play_audio")
-	get_tree().call_group("HitObjects", "connect", "score_added", self, "add_score")
 	_time_begin += Time.get_ticks_usec() / 1000000.0 + AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	if _first_note_time < 1:
 		_time_begin += 1 - _first_note_time
@@ -196,8 +138,10 @@ func _ready() -> void:
 		root_viewport.music.play()
 
 	_active = true
-	get_tree().call_group("HitObjects", "activate")
-	_f.close()
+
+
+func _exit_tree() -> void:
+	_thread.wait_to_finish()
 
 
 func _process(_delta: float) -> void:
@@ -228,7 +172,7 @@ func _process(_delta: float) -> void:
 				## Comment
 				var timing_point := hit_object as TimingPoint
 
-				_cur_spb = 60 / timing_point.bpm
+				_cur_spb = 60 / timing_point.bpm if timing_point.bpm else INF
 				_cur_animation_time = timing_point.timing + _cur_spb
 
 				if _in_kiai != timing_point.is_kiai:
@@ -292,19 +236,12 @@ func add_marker(timing: float, previous_timing: float) -> void:
 
 
 ## Comment
-func add_object(hit_object: HitObject, loaded := true) -> void:
+func add_object(hit_object: HitObject) -> void:
 	obj_container.add_child(hit_object)
 	for i in range(obj_container.get_child_count()):
 		if hit_object.end_time > (obj_container.get_child(i) as HitObject).end_time:
 			obj_container.move_child(hit_object, i)
 			break
-
-	if loaded:
-		return
-
-	hit_object.apply_skin()
-	GlobalTools.send_signal(self, "audio_played", hit_object, "play_audio")
-	GlobalTools.send_signal(self, "score_added", hit_object, "add_score")
 
 
 ## Comment
@@ -480,6 +417,69 @@ func handle_input(event: InputEvent) -> void:
 	inputs.remove(0)
 	for key in inputs:
 		play_audio(str(key))
+
+
+## Comment
+func load_objects(f: File) -> void:
+	## Comment
+	var cur_bpm := -1.0
+
+	while f.get_position() < f.get_len():
+		## Comment
+		var line_data := f.get_csv_line()
+
+		## Comment
+		var timing := float(line_data[0])
+
+		## Comment
+		var total_cur_sv := float(line_data[1]) * cur_bpm * 5.7
+
+		## Comment
+		var note_type := int(line_data[2])
+
+		if note_type > ChartLoader.NoteType.BARLINE:
+			_first_note_time = min(_first_note_time if _first_note_time + 1 else timing, timing)
+			_last_note_time = max(_last_note_time if _last_note_time + 1 else timing, timing)
+
+		match note_type:
+			ChartLoader.NoteType.BARLINE:
+				## Comment
+				var hit_object := root_viewport.bar_line_object.instance() as BarLine
+
+				hit_object.change_properties(timing, total_cur_sv, self)
+				call_deferred("add_object", hit_object)
+
+			ChartLoader.NoteType.DON, ChartLoader.NoteType.KAT:
+				## Comment
+				var hit_object := root_viewport.note_object.instance() as Note
+
+				hit_object.change_properties(timing, total_cur_sv, int(line_data[2]) == int(ChartLoader.NoteType.KAT), self, bool(int(line_data[3])))
+				call_deferred("add_object", hit_object)
+
+			ChartLoader.NoteType.ROLL:
+				## Comment
+				var hit_object := root_viewport.roll_object.instance() as Roll
+
+				hit_object.change_properties(timing, total_cur_sv, float(line_data[3]), self, bool(int(line_data[4])), cur_bpm)
+				call_deferred("add_object", hit_object)
+
+			ChartLoader.NoteType.SPINNER:
+				## Comment
+				var hit_object := root_viewport.spinner_warn_object.instance() as SpinnerWarn
+
+				hit_object.change_properties(timing, total_cur_sv, float(line_data[3]), self, cur_bpm)
+				call_deferred("add_object", hit_object)
+
+			ChartLoader.NoteType.TIMING_POINT:
+				cur_bpm = float(line_data[1])
+
+				## Comment
+				var hit_object := root_viewport.timing_point_object.instance() as TimingPoint
+
+				hit_object.change_properties(timing, int(line_data[3]), self, cur_bpm)
+				call_deferred("add_object", hit_object)
+
+	f.close()
 
 
 ## Comment

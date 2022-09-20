@@ -27,7 +27,7 @@ func _ready() -> void:
 		## The [Tick] object to spawn.
 		var new_tick := root_viewport.tick_object.instance() as Tick
 
-		new_tick.change_properties(tick_idx * _tick_distance * speed)
+		new_tick.change_properties(tick_idx * _tick_distance * speed, gameplay_node)
 		tick_container.add_child(new_tick)
 		tick_container.move_child(new_tick, 0)
 
@@ -52,8 +52,8 @@ func auto_hit(hit_time: float, hit_left: bool) -> int:
 
 
 ## Initialize [Roll] variables.
-func change_properties(new_timing: float, new_speed: float, new_length: float, new_finisher: bool, new_bpm: float) -> void:
-	.ini(new_timing, new_speed, new_length, new_finisher)
+func change_properties(new_timing: float, new_speed: float, new_length: float, new_gameplay: Node, new_finisher: bool, new_bpm: float) -> void:
+	.ini(new_timing, new_speed, new_length, new_gameplay, new_finisher)
 	_tick_distance = 15 / new_bpm
 	_total_ticks = int(round(length * 10 / _tick_distance) / 10) + 1
 

@@ -26,6 +26,9 @@ enum Score {ACCURATE, INACCURATE, MISS, FINISHER, ROLL, SPINNER}
 ## 3 (FINISHED): This [HitObject] has been fully hit or missed. It will be disposed of once all animations finish.
 enum State {READY = 1, ACTIVE, FINISHED}
 
+## Comment
+var gameplay_node := Node.new()
+
 ## Whether or not this [HitObject] is a finisher. Only applies to [Note]s and [Roll]s.
 var finisher := false
 
@@ -52,15 +55,11 @@ onready var root_viewport := $"/root" as Root
 
 func _ready() -> void:
 	hide()
+	GlobalTools.send_signal(gameplay_node, "audio_played", self, "play_audio")
+	GlobalTools.send_signal(gameplay_node, "score_added", self, "add_score")
 	add_to_group("HitObjects")
 	add_to_group("Skinnables")
-	move(1, timing)
-	state = int(State.READY)
-
-
-## Enable motion and [method hit] and [method miss_check] calls on this [HitObject].
-func activate() -> void:
-	assert(state == int(State.READY), "Attempted to activate hitobject.")
+	call_deferred("apply_skin")
 	state = int(State.ACTIVE)
 
 
@@ -136,13 +135,15 @@ func hit(_inputs: Array, _hit_time: float) -> bool:
 
 
 ## Initialize base [HitObject] variables. Called and extended by child classes via [method change_properties].
-func ini(new_timing: float, new_speed: float, new_length: float, new_finisher := false) -> void:
+func ini(new_timing: float, new_speed: float, new_length: float, new_gameplay: Node, new_finisher := false) -> void:
 	assert(not state, "Attempted to change hitobject properties after loaded.")
 	finisher = new_finisher
 	length = new_length
 	speed = new_speed
 	timing = new_timing
 	end_time = timing + length
+	gameplay_node.queue_free()
+	gameplay_node = new_gameplay
 
 
 ## Check if this [HitObject] has been missed. Intended to be implemented by child classes.

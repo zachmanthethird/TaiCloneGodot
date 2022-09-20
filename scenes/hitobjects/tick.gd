@@ -2,9 +2,7 @@ class_name Tick
 extends HitObject
 
 
-## See [HitObject].
-func activate() -> void:
-	.activate()
+func _ready() -> void:
 	rect_position.x = timing + margin_left
 
 
@@ -31,8 +29,8 @@ func auto_hit(hit_time: float, hit_left: bool) -> int:
 
 
 ## Initialize [Tick] variables.
-func change_properties(new_timing: float) -> void:
-	.ini(new_timing, 0, 0)
+func change_properties(new_timing: float, new_gameplay: Node) -> void:
+	.ini(new_timing, 0, 0, new_gameplay)
 
 
 ## See [HitObject].

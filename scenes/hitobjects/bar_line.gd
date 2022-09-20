@@ -3,8 +3,8 @@ extends HitObject
 
 
 ## Initialize [BarLine] variables.
-func change_properties(new_timing: float, new_speed: float) -> void:
-	.ini(new_timing, new_speed, 0)
+func change_properties(new_timing: float, new_speed: float, new_gameplay: Node) -> void:
+	.ini(new_timing, new_speed, 0, new_gameplay)
 	end_time += 10
 
 

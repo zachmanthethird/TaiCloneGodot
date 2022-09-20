@@ -17,6 +17,7 @@ onready var head_overlay := $Overlay as TextureRect
 
 
 func _ready() -> void:
+	GlobalTools.send_signal(gameplay_node, "new_marker_added", self, "add_marker")
 	if finisher:
 		rect_position *= FINISHER_SCALE
 		rect_size *= FINISHER_SCALE
@@ -58,8 +59,8 @@ func auto_hit(hit_time: float, hit_left: bool) -> int:
 
 
 ## Initialize [Note] variables.
-func change_properties(new_timing: float, new_speed: float, new_is_kat: bool, new_finisher: bool) -> void:
-	.ini(new_timing, new_speed, 0, new_finisher)
+func change_properties(new_timing: float, new_speed: float, new_is_kat: bool, new_gameplay: Node, new_finisher: bool) -> void:
+	.ini(new_timing, new_speed, 0, new_gameplay, new_finisher)
 	_is_kat = new_is_kat
 
 
