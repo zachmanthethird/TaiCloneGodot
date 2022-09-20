@@ -15,6 +15,7 @@ onready var status_label := $Clickable/Organizer/Info/Banners/Status/Label as La
 
 func _ready() -> void:
 	apply_skin()
+	change_song()
 	chart_info.text = chart.chart_info()
 	song_info.text = chart.song_info()
 	rating_label.text = "?"
@@ -27,7 +28,7 @@ func apply_skin() -> void:
 
 
 ## Comment
-func change_song(new_folder: String) -> void:
+func change_song() -> void:
 	## Comment
 	var size_x := clickable.rect_size.x
 
@@ -36,7 +37,7 @@ func change_song(new_folder: String) -> void:
 		clickable.self_modulate = Color.white
 		clickable.background.self_modulate = Color.white
 
-	elif chart.folder_path == new_folder:
+	elif root_viewport.chart.folder_path == chart.folder_path:
 		clickable.margin_left = 56
 		clickable.self_modulate = Color("ffdf80")
 		clickable.background.self_modulate = Color("ffdf80")
@@ -54,5 +55,5 @@ func clickable_clicked() -> void:
 		root_viewport.add_blackout(root_viewport.gameplay)
 		return
 
-	get_tree().call_group("Songs", "change_song", chart.folder_path)
 	root_viewport.chart = chart
+	get_tree().call_group("Songs", "change_song")

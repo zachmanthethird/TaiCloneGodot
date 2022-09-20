@@ -54,7 +54,7 @@ func auto_hit(hit_time: float, hit_left: bool) -> int:
 ## Initialize [Roll] variables.
 func change_properties(new_timing: float, new_speed: float, new_length: float, new_gameplay: Node, new_finisher: bool, new_bpm: float) -> void:
 	.ini(new_timing, new_speed, new_length, new_gameplay, new_finisher)
-	_tick_distance = 15 / new_bpm
+	_tick_distance = 15 / new_bpm if new_bpm else INF
 	_total_ticks = int(round(length * 10 / _tick_distance) / 10) + 1
 
 

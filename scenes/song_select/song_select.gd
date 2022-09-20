@@ -63,6 +63,9 @@ func load_metadata(folders: Array) -> void:
 				f.close()
 				continue
 
+			if is_queued_for_deletion():
+				return
+
 			## Comment
 			var song_button := root_viewport.song_button_object.instance() as SongButton
 
