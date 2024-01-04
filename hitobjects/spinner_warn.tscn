@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://hitobjects/spinner_warn.gd" type="Script" id=1]
+[gd_scene format=3 uid="uid://bmhnqu4hevsm"]
 
 [node name="SpinnerWarn" type="TextureRect"]
 offset_left = -96.0
@@ -8,5 +6,4 @@ offset_top = -96.0
 offset_right = 480.0
 offset_bottom = 96.0
 expand_mode = 1
-stretch_mode = 5
-script = ExtResource( 1 )
+stretch_mode = 4
