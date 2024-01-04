@@ -1,3 +1,51 @@
-[gd_resource type="Theme" format=3 uid="uid://dun86fci4qs3r"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dun86fci4qs3r"]
+
+[ext_resource type="FontFile" uid="uid://cgk0ss43ojegc" path="res://fonts/noto_sans_jp-bold.otf" id="1_qw8py"]
+[ext_resource type="FontFile" uid="uid://g0e10n0wbvi5" path="res://fonts/noto_sans_jp-regular.otf" id="2_fvnm4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66ry0"]
+bg_color = Color(0.0392157, 0.0392157, 0.0392157, 0.490196)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bico5"]
+bg_color = Color(0.360784, 0.603922, 0.737255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0)
 
 [resource]
+default_font = ExtResource("2_fvnm4")
+default_font_size = 26
+FontBold26Outlined/base_type = &"Label"
+FontBold26Outlined/colors/font_outline_color = Color(0, 0, 0, 0.313726)
+FontBold26Outlined/constants/outline_size = 2
+FontBold26Outlined/font_sizes/font_size = 26
+FontBold26Outlined/fonts/font = ExtResource("1_qw8py")
+FontBold50/base_type = &"Label"
+FontBold50/font_sizes/font_size = 50
+FontBold50/fonts/font = ExtResource("1_qw8py")
+FontBold65Outlined/base_type = &"Label"
+FontBold65Outlined/colors/font_outline_color = Color(0, 0, 0, 0.313726)
+FontBold65Outlined/constants/outline_size = 2
+FontBold65Outlined/font_sizes/font_size = 65
+FontBold65Outlined/fonts/font = ExtResource("1_qw8py")
+FontBold75Outlined/base_type = &"Label"
+FontBold75Outlined/colors/font_outline_color = Color(0, 0, 0, 0.313726)
+FontBold75Outlined/constants/outline_size = 2
+FontBold75Outlined/font_sizes/font_size = 75
+FontBold75Outlined/fonts/font = ExtResource("1_qw8py")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_66ry0")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_bico5")
+SeparationP01/base_type = &"BoxContainer"
+SeparationP01/constants/separation = 1
+SeparationP08/base_type = &"BoxContainer"
+SeparationP08/constants/separation = 8
