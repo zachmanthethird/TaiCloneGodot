@@ -103,7 +103,6 @@ theme_type_variation = &"FontBold50"
 
 [node name="DrumVisual" parent="BarRight" instance=ExtResource("1_bn5wy")]
 layout_mode = 1
-anchors_preset = -1
 
 [node name="Pippidon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -171,7 +170,6 @@ tint_progress = Color(0.360784, 0.737255, 0.376471, 1)
 
 [node name="HitError" parent="." instance=ExtResource("2_cs3hg")]
 layout_mode = 1
-anchors_preset = -1
 
 [node name="Debug" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -230,7 +228,7 @@ text = "v0.4 - new coat of paint"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Settings" type="Button" parent="Debug/TempLoadChart"]
+[node name="SettingsButton" type="Button" parent="Debug/TempLoadChart"]
 visible = false
 custom_minimum_size = Vector2(171, 0)
 layout_mode = 2

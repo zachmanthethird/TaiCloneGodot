@@ -22,8 +22,8 @@ anchor_bottom = 0.675
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_right = 2.0
+offset_left = 2.0
+offset_right = -2.0
 
 [node name="Inaccurate" type="ColorRect" parent="HitPoints"]
 layout_mode = 1
