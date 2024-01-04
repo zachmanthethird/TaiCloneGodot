@@ -1,0 +1,237 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsn50altgepc5"]
+
+[ext_resource type="PackedScene" uid="uid://bxvyp1kbkcw2o" path="res://gameplay/drum_visual.tscn" id="1_bn5wy"]
+[ext_resource type="PackedScene" uid="uid://hk6c65pa82j2" path="res://gameplay/hit_error.tscn" id="2_cs3hg"]
+[ext_resource type="Texture2D" uid="uid://bagw638hub46j" path="res://temporary/osu_rwxudnxmu5.png" id="3_b5q5i"]
+[ext_resource type="Texture2D" uid="uid://di5ak32qxb6in" path="res://temporary/untitled.png" id="4_eb3ur"]
+
+[sub_resource type="Gradient" id="Gradient_2m8st"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3x11q"]
+gradient = SubResource("Gradient_2m8st")
+width = 1
+
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Ref" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.878431)
+layout_mode = 1
+anchors_preset = -1
+texture = ExtResource("3_b5q5i")
+
+[node name="Ref2" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.878431)
+layout_mode = 1
+anchors_preset = -1
+texture = ExtResource("4_eb3ur")
+
+[node name="BarRight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 304.0
+offset_bottom = 582.0
+
+[node name="HitPointOffset" type="Control" parent="BarRight"]
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 361.0
+
+[node name="HitPoint" type="TextureRect" parent="BarRight/HitPointOffset"]
+self_modulate = Color(1, 1, 1, 0.435294)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -61.0
+offset_top = -61.0
+offset_right = 61.0
+offset_bottom = 61.0
+
+[node name="Rim" type="TextureRect" parent="BarRight/HitPointOffset/HitPoint"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="KiaiGlow" type="TextureRect" parent="BarRight/HitPointOffset"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -196.0
+offset_right = 196.0
+offset_bottom = 196.0
+stretch_mode = 5
+
+[node name="Judgement" type="TextureRect" parent="BarRight/HitPointOffset"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -196.0
+offset_right = 196.0
+offset_bottom = 196.0
+stretch_mode = 5
+
+[node name="ObjectContainer" type="Control" parent="BarRight/HitPointOffset"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TimingIndicator" type="Label" parent="BarRight/HitPointOffset"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -203.0
+offset_bottom = -130.0
+grow_horizontal = 2
+theme_type_variation = &"FontBold50"
+
+[node name="DrumVisual" parent="BarRight" instance=ExtResource("1_bn5wy")]
+layout_mode = 1
+anchors_preset = -1
+
+[node name="Pippidon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 23.0
+offset_right = 673.0
+offset_bottom = 360.0
+stretch_mode = 4
+
+[node name="UI" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 8.0
+offset_right = -11.0
+grow_horizontal = 0
+
+[node name="Score" type="Label" parent="UI"]
+layout_mode = 2
+theme_type_variation = &"FontBold65Outlined"
+
+[node name="LastHitScore" type="Label" parent="UI"]
+modulate = Color(1, 0.227451, 0.227451, 1)
+layout_mode = 2
+theme_type_variation = &"FontBold65Outlined"
+horizontal_alignment = 2
+
+[node name="Accuracy" type="HBoxContainer" parent="UI"]
+layout_mode = 2
+theme_type_variation = &"SeparationP01"
+
+[node name="Label" type="Label" parent="UI/Accuracy"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FontBold65Outlined"
+horizontal_alignment = 2
+
+[node name="Percent" type="Label" parent="UI/Accuracy"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"FontBold26Outlined"
+text = "%"
+
+[node name="SongProgress" type="ProgressBar" parent="UI"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+show_percentage = false
+
+[node name="BreakProgress" type="TextureProgressBar" parent="UI/SongProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+step = 0.01
+fill_mode = 1
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_3x11q")
+tint_under = Color(0.0352941, 0.0352941, 0.0352941, 0.490196)
+tint_progress = Color(0.360784, 0.737255, 0.376471, 1)
+
+[node name="HitError" parent="." instance=ExtResource("2_cs3hg")]
+layout_mode = 1
+anchors_preset = -1
+
+[node name="Debug" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -100.0
+offset_right = -9.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="DebugText" type="Label" parent="Debug"]
+layout_mode = 2
+text = "Welcome to TaiClone!"
+
+[node name="TempLoadChart" type="HBoxContainer" parent="Debug"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"SeparationP08"
+
+[node name="LineEdit" type="LineEdit" parent="Debug/TempLoadChart"]
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 2
+placeholder_text = "Chart Location"
+
+[node name="LoadButton" type="Button" parent="Debug/TempLoadChart"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Load"
+
+[node name="PlayButton" type="Button" parent="Debug/TempLoadChart"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "Play"
+
+[node name="AutoToggle" type="CheckBox" parent="Debug/TempLoadChart"]
+layout_mode = 2
+text = "Auto"
+
+[node name="Text" type="VBoxContainer" parent="Debug/TempLoadChart"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FPS" type="Label" parent="Debug/TempLoadChart/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="Debug/TempLoadChart/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "v0.4 - new coat of paint"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Settings" type="Button" parent="Debug/TempLoadChart"]
+visible = false
+custom_minimum_size = Vector2(171, 0)
+layout_mode = 2
+text = "Settings"

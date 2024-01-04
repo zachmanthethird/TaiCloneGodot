@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bxvyp1kbkcw2o"]
+
+[node name="DrumVisual" type="TextureRect"]
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = 254.0
+
+[node name="ComboBreakAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="FinisherDonAudio" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="FinisherKatAudio" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="LeftDonAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="LeftKatAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="RightDonAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="RightKatAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="LeftDon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="LeftKat" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+flip_h = true
+
+[node name="RightDon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+flip_h = true
+
+[node name="RightKat" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Combo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_type_variation = &"FontBold75Outlined"
+horizontal_alignment = 1
+vertical_alignment = 1
