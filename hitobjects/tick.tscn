@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cx6vr8rtem6k0"]
+
+[node name="Tick" type="TextureRect"]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+stretch_mode = 5
