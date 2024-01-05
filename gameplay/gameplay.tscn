@@ -164,6 +164,7 @@ offset_bottom = -2.0
 step = 0.01
 fill_mode = 1
 nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_3x11q")
 texture_progress = SubResource("GradientTexture1D_3x11q")
 tint_under = Color(0.0352941, 0.0352941, 0.0352941, 0.490196)
 tint_progress = Color(0.360784, 0.737255, 0.376471, 1)
