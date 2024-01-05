@@ -1,0 +1,260 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf3qlav52iv25"]
+
+[ext_resource type="PackedScene" uid="uid://cptrtn718pt2h" path="res://gui/buffer.tscn" id="1_n7j0k"]
+
+[node name="SettingsPanel" type="PanelContainer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 400.0
+theme_type_variation = &"_Settings"
+
+[node name="V" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Settings" type="ScrollContainer" parent="V"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="V" type="VBoxContainer" parent="V/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="V/Settings/V"]
+layout_mode = 2
+theme_type_variation = &"FontRegular045"
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="V/Settings/V"]
+layout_mode = 2
+text = "Change how the game runs."
+horizontal_alignment = 1
+
+[node name="Buffer1" parent="V/Settings/V" instance=ExtResource("1_n7j0k")]
+layout_mode = 2
+
+[node name="Keybinds" type="VBoxContainer" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="V/Settings/V/Keybinds"]
+layout_mode = 2
+theme_type_variation = &"FontBold26"
+text = "Keybinds"
+horizontal_alignment = 1
+
+[node name="LeftKat" type="HBoxContainer" parent="V/Settings/V/Keybinds"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/Keybinds/LeftKat"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left Kat"
+
+[node name="Button" type="Button" parent="V/Settings/V/Keybinds/LeftKat"]
+layout_mode = 2
+
+[node name="LeftDon" type="HBoxContainer" parent="V/Settings/V/Keybinds"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/Keybinds/LeftDon"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left Don"
+
+[node name="Button" type="Button" parent="V/Settings/V/Keybinds/LeftDon"]
+layout_mode = 2
+
+[node name="RightDon" type="HBoxContainer" parent="V/Settings/V/Keybinds"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/Keybinds/RightDon"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right Don"
+
+[node name="Button" type="Button" parent="V/Settings/V/Keybinds/RightDon"]
+layout_mode = 2
+
+[node name="RightKat" type="HBoxContainer" parent="V/Settings/V/Keybinds"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/Keybinds/RightKat"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right Kat"
+
+[node name="Button" type="Button" parent="V/Settings/V/Keybinds/RightKat"]
+layout_mode = 2
+
+[node name="Buffer2" parent="V/Settings/V" instance=ExtResource("1_n7j0k")]
+layout_mode = 2
+
+[node name="Resolution" type="VBoxContainer" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="V/Settings/V/Resolution"]
+layout_mode = 2
+theme_type_variation = &"FontBold26"
+text = "Resolution (WIP)"
+horizontal_alignment = 1
+
+[node name="Options" type="OptionButton" parent="V/Settings/V/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Fullscreen" type="HBoxContainer" parent="V/Settings/V/Resolution"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/Resolution/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="Toggle" type="CheckBox" parent="V/Settings/V/Resolution/Fullscreen"]
+layout_mode = 2
+
+[node name="Buffer3" parent="V/Settings/V" instance=ExtResource("1_n7j0k")]
+layout_mode = 2
+
+[node name="AudioLabel" type="Label" parent="V/Settings/V"]
+layout_mode = 2
+theme_type_variation = &"FontBold26"
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="Offset" type="HBoxContainer" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="V/Settings/V/Offset"]
+layout_mode = 2
+text = "Offset"
+
+[node name="LineEdit" type="SpinBox" parent="V/Settings/V/Offset"]
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+alignment = 2
+
+[node name="HSlider" type="HSlider" parent="V/Settings/V"]
+layout_mode = 2
+min_value = -200.0
+max_value = 200.0
+
+[node name="Buffer4" parent="V/Settings/V" instance=ExtResource("1_n7j0k")]
+layout_mode = 2
+
+[node name="ExtraDisplays" type="VBoxContainer" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="V/Settings/V/ExtraDisplays"]
+layout_mode = 2
+theme_type_variation = &"FontBold26"
+text = "Extra Displays"
+horizontal_alignment = 1
+
+[node name="LateEarly" type="HBoxContainer" parent="V/Settings/V/ExtraDisplays"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/ExtraDisplays/LateEarly"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Late/Early Text"
+
+[node name="Options" type="OptionButton" parent="V/Settings/V/ExtraDisplays/LateEarly"]
+layout_mode = 2
+
+[node name="HitError" type="HBoxContainer" parent="V/Settings/V/ExtraDisplays"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="V/Settings/V/ExtraDisplays/HitError"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hit Error Bar"
+
+[node name="Toggle" type="CheckBox" parent="V/Settings/V/ExtraDisplays/HitError"]
+layout_mode = 2
+
+[node name="Buffer5" parent="V/Settings/V" instance=ExtResource("1_n7j0k")]
+layout_mode = 2
+
+[node name="DebugLabel" type="Label" parent="V/Settings/V"]
+layout_mode = 2
+theme_type_variation = &"FontBold26"
+text = "Debug"
+horizontal_alignment = 1
+
+[node name="GamePathLabel" type="Label" parent="V/Settings/V"]
+layout_mode = 2
+text = "Game Path"
+horizontal_alignment = 1
+
+[node name="GamePathText" type="Label" parent="V/Settings/V"]
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GamePathButton" type="Button" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Change Game Path"
+
+[node name="ChangeSkinButton" type="Button" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Change Skin"
+
+[node name="RemoveSkinButton" type="Button" parent="V/Settings/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Remove Skin"
+
+[node name="Preferences" type="ScrollContainer" parent="V"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="V" type="VBoxContainer" parent="V/Preferences"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="V/Preferences/V"]
+layout_mode = 2
+theme_type_variation = &"FontRegular045"
+text = "Preferences"
+horizontal_alignment = 1
+
+[node name="Buffer" parent="V/Preferences/V" instance=ExtResource("1_n7j0k")]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="V/Preferences/V"]
+layout_mode = 2
+text = "uhm... cheesed to meet you?"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite" type="TextureRect" parent="V/Preferences/V"]
+layout_mode = 2
+
+[node name="Tabs" type="HBoxContainer" parent="V"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_type_variation = &"SeparationP00"
+
+[node name="Settings" type="Button" parent="V/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"_SettingsButton"
+text = "Settings"
+
+[node name="Preferences" type="Button" parent="V/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"_SettingsButton"
+text = "Preferences"
