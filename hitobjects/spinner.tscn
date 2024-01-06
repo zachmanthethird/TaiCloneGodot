@@ -5,6 +5,7 @@ offset_left = -16.0
 offset_top = -224.0
 offset_right = 734.0
 offset_bottom = 526.0
+expand_mode = 1
 
 [node name="Sprite" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -19,6 +20,7 @@ offset_top = -375.0
 offset_right = 375.0
 offset_bottom = 375.0
 pivot_offset = Vector2(375, 375)
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]

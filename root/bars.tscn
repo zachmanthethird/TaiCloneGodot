@@ -54,6 +54,7 @@ modulate = Color(0.921569, 0.313726, 0.215686, 1)
 custom_minimum_size = Vector2(57, 25)
 layout_mode = 2
 size_flags_vertical = 4
+expand_mode = 1
 stretch_mode = 5
 
 [node name="DifficultyName" type="Label" parent="Top/V/Bottom"]

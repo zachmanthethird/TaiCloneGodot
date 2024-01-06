@@ -4,6 +4,7 @@
 anchors_preset = -1
 anchor_bottom = 1.0
 offset_right = 254.0
+expand_mode = 1
 
 [node name="ComboBreakAudio" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
@@ -33,12 +34,14 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 1.0
+expand_mode = 1
 
 [node name="LeftKat" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 1.0
+expand_mode = 1
 flip_h = true
 
 [node name="RightDon" type="TextureRect" parent="."]
@@ -47,6 +50,7 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
+expand_mode = 1
 flip_h = true
 
 [node name="RightKat" type="TextureRect" parent="."]
@@ -55,6 +59,7 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
+expand_mode = 1
 
 [node name="Combo" type="Label" parent="."]
 layout_mode = 1

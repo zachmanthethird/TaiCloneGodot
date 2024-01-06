@@ -38,6 +38,7 @@ anchors_preset = -1
 anchor_right = 1.0
 offset_top = 304.0
 offset_bottom = 582.0
+expand_mode = 1
 
 [node name="HitPointOffset" type="Control" parent="BarRight"]
 layout_mode = 1
@@ -53,6 +54,7 @@ offset_left = -61.0
 offset_top = -61.0
 offset_right = 61.0
 offset_bottom = 61.0
+expand_mode = 1
 
 [node name="Rim" type="TextureRect" parent="BarRight/HitPointOffset/HitPoint"]
 layout_mode = 1
@@ -63,6 +65,7 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
+expand_mode = 1
 
 [node name="KiaiGlow" type="TextureRect" parent="BarRight/HitPointOffset"]
 layout_mode = 1
@@ -73,6 +76,7 @@ offset_left = -196.0
 offset_top = -196.0
 offset_right = 196.0
 offset_bottom = 196.0
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Judgement" type="TextureRect" parent="BarRight/HitPointOffset"]
@@ -84,6 +88,7 @@ offset_left = -196.0
 offset_top = -196.0
 offset_right = 196.0
 offset_bottom = 196.0
+expand_mode = 1
 stretch_mode = 5
 
 [node name="ObjectContainer" type="Control" parent="BarRight/HitPointOffset"]
@@ -110,6 +115,7 @@ anchors_preset = -1
 offset_top = 23.0
 offset_right = 673.0
 offset_bottom = 360.0
+expand_mode = 1
 stretch_mode = 4
 
 [node name="UI" type="VBoxContainer" parent="."]
