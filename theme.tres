@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dsrqa853ihv5l"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://dsrqa853ihv5l"]
 
 [ext_resource type="FontFile" uid="uid://sxcnkp6br8rh" path="res://fonts/noto_sans_jp-black.otf" id="1_q0y42"]
 [ext_resource type="FontFile" uid="uid://cgk0ss43ojegc" path="res://fonts/noto_sans_jp-bold.otf" id="2_qw8py"]
@@ -62,6 +62,29 @@ bg_color = Color(0.184314, 0.184314, 0.184314, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3sdk"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77k8y"]
+bg_color = Color(0.262745, 0.262745, 0.262745, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq1eb"]
+bg_color = Color(0, 0, 0, 0.607843)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjnn2"]
+bg_color = Color(0.145098, 0.145098, 0.164706, 0.843137)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha4mj"]
 bg_color = Color(0.145098, 0.145098, 0.164706, 0.607843)
 
@@ -107,6 +130,9 @@ FontBold75Outlined/fonts/font = ExtResource("2_qw8py")
 FontRegular015/base_type = &"Label"
 FontRegular015/font_sizes/font_size = 15
 FontRegular015/fonts/font = ExtResource("3_fvnm4")
+FontRegular017/base_type = &"Label"
+FontRegular017/font_sizes/font_size = 17
+FontRegular017/fonts/font = ExtResource("3_fvnm4")
 FontRegular022/base_type = &"Label"
 FontRegular022/font_sizes/font_size = 22
 FontRegular022/fonts/font = ExtResource("3_fvnm4")
@@ -124,6 +150,8 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_5wu66")
 HSlider/styles/slider = SubResource("StyleBoxFlat_de4ln")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_66ry0")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_bico5")
+SeparationN08/base_type = &"BoxContainer"
+SeparationN08/constants/separation = -8
 SeparationP00/base_type = &"BoxContainer"
 SeparationP00/constants/separation = 0
 SeparationP01/base_type = &"BoxContainer"
@@ -142,6 +170,11 @@ _BottomButton/fonts/font = ExtResource("3_fvnm4")
 _BottomButton/styles/disabled = SubResource("StyleBoxFlat_1xru2")
 _BottomButton/styles/hover = SubResource("StyleBoxFlat_sseym")
 _BottomButton/styles/normal = SubResource("StyleBoxFlat_j3sdk")
+_PlayButton/base_type = &"Button"
+_PlayButton/styles/hover = SubResource("StyleBoxFlat_77k8y")
+_PlayButton/styles/normal = SubResource("StyleBoxFlat_wq1eb")
+_Scoreboard/base_type = &"ScrollContainer"
+_Scoreboard/styles/panel = SubResource("StyleBoxFlat_bjnn2")
 _Settings/base_type = &"PanelContainer"
 _Settings/styles/panel = SubResource("StyleBoxFlat_ha4mj")
 _SettingsButton/base_type = &"Button"
