@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddea5ckle2m3j"]
+
+[ext_resource type="PackedScene" uid="uid://clmaleskhuntd" path="res://scoreboard/play.tscn" id="1_ts6h4"]
+
+[node name="Scoreboard" type="ScrollContainer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -325.0
+offset_right = -304.0
+offset_bottom = 325.0
+theme_type_variation = &"_Scoreboard"
+
+[node name="V" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Play" parent="V" instance=ExtResource("1_ts6h4")]
+layout_mode = 2
