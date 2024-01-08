@@ -1,63 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dihwu6cstimvu"]
 
-[ext_resource path="res://scenes/main_menu.gd" type="Script" id=1]
-[ext_resource path="res://temporary/sdsddsd.png" type="Texture" id=2]
+[ext_resource type="Texture2D" uid="uid://bvf2wvphe5q1g" path="res://temporary/sdsddsd.png" id="1_xxsnx"]
 
 [node name="MainMenu" type="VBoxContainer"]
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -282.0
 offset_right = 282.0
-theme_type_variation = "SeparationP15"
+theme_type_variation = &"SeparationP15"
 alignment = 1
-script = ExtResource( 1 )
 
 [node name="Logo" type="TextureRect" parent="."]
-offset_top = 198.0
-offset_right = 564.0
-offset_bottom = 391.0
-rect_min_size = Vector2( 0, 193 )
-texture = ExtResource( 2 )
+custom_minimum_size = Vector2(0, 193)
+layout_mode = 2
+texture = ExtResource("1_xxsnx")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 4
 
 [node name="Play" type="Button" parent="."]
-offset_top = 406.0
-offset_right = 564.0
-offset_bottom = 489.0
-theme_type_variation = "_MainMenu"
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
 text = "Play"
 
 [node name="Edit" type="Button" parent="."]
-offset_top = 504.0
-offset_right = 564.0
-offset_bottom = 587.0
-theme_type_variation = "_MainMenu"
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
 disabled = true
 text = "Edit"
 
 [node name="Training" type="Button" parent="."]
-offset_top = 602.0
-offset_right = 564.0
-offset_bottom = 685.0
-theme_type_variation = "_MainMenu"
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
 disabled = true
 text = "Training"
 
 [node name="Options" type="Button" parent="."]
-offset_top = 700.0
-offset_right = 564.0
-offset_bottom = 783.0
-theme_type_variation = "_MainMenu"
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
 text = "Options"
 
 [node name="Exit" type="Button" parent="."]
-offset_top = 798.0
-offset_right = 564.0
-offset_bottom = 881.0
-theme_type_variation = "_MainMenu"
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
 text = "Exit"
-
-[connection signal="button_up" from="Play" to="." method="play_button_pressed"]
-[connection signal="button_up" from="Exit" to="." method="exit_button_pressed"]

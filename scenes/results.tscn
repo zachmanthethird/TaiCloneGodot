@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://7ygatwelepee"]
 
-[ext_resource path="res://scenes/results.gd" type="Script" id=1]
-[ext_resource path="res://scoreboard/scoreboard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://temporary/brehd.png" type="Texture" id=3]
-[ext_resource path="res://temporary/EZyWWDDWsAEfQMF.jpg" type="Texture" id=4]
+[ext_resource type="PackedScene" uid="uid://ddea5ckle2m3j" path="res://scoreboard/scoreboard.tscn" id="1_htu3n"]
+[ext_resource type="Texture2D" uid="uid://o2cdlvbx5yuk" path="res://temporary/brehd.png" id="2_vr4x8"]
+[ext_resource type="Texture2D" uid="uid://dv7anqmlyhqbv" path="res://temporary/EZyWWDDWsAEfQMF.jpg" id="3_yo8mk"]
 
 [node name="Results" type="Panel"]
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -14,175 +14,139 @@ offset_left = -287.0
 offset_top = -395.0
 offset_right = 287.0
 offset_bottom = 395.0
-theme_type_variation = "_Results"
-script = ExtResource( 1 )
+theme_type_variation = &"_Results"
 
-[node name="Scoreboard" parent="." instance=ExtResource( 2 )]
+[node name="Scoreboard" parent="." instance=ExtResource("1_htu3n")]
+layout_mode = 1
 
 [node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 20.0
 offset_bottom = -24.0
 
 [node name="Rank" type="TextureRect" parent="Main"]
-offset_right = 574.0
-offset_bottom = 350.0
-rect_min_size = Vector2( 0, 350 )
-texture = ExtResource( 4 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+texture = ExtResource("3_yo8mk")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Mods" type="HBoxContainer" parent="Main"]
-offset_top = 354.0
-offset_right = 574.0
-offset_bottom = 414.0
+layout_mode = 2
 alignment = 1
 
 [node name="HD" type="TextureRect" parent="Main/Mods"]
-offset_left = 257.0
-offset_right = 317.0
-offset_bottom = 60.0
-rect_min_size = Vector2( 60, 60 )
-texture = ExtResource( 3 )
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_vr4x8")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Score" type="VBoxContainer" parent="Main"]
-offset_top = 418.0
-offset_right = 574.0
-offset_bottom = 580.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Text" type="Label" parent="Main/Score"]
-offset_right = 574.0
-offset_bottom = 49.0
-theme_type_variation = "FontRegular030"
+layout_mode = 2
+theme_type_variation = &"FontRegular030"
 text = "Score"
-align = 1
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Main/Score"]
-offset_top = 53.0
-offset_right = 574.0
-offset_bottom = 106.0
-theme_type_variation = "FontRegular060"
-align = 1
+layout_mode = 2
+theme_type_variation = &"FontRegular060"
+horizontal_alignment = 1
 
 [node name="H" type="HBoxContainer" parent="Main"]
-offset_top = 584.0
-offset_right = 574.0
-offset_bottom = 746.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Combo" type="VBoxContainer" parent="Main/H"]
-offset_right = 285.0
-offset_bottom = 162.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Text" type="Label" parent="Main/H/Combo"]
-offset_right = 285.0
-offset_bottom = 49.0
-theme_type_variation = "FontRegular030"
+layout_mode = 2
+theme_type_variation = &"FontRegular030"
 text = "Combo"
-align = 1
+horizontal_alignment = 1
 
 [node name="H" type="HBoxContainer" parent="Main/H/Combo"]
-offset_top = 53.0
-offset_right = 285.0
-offset_bottom = 106.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="Main/H/Combo/H"]
-offset_left = 140.0
-offset_right = 140.0
-offset_bottom = 53.0
-size_flags_horizontal = 4
-theme_type_variation = "FontRegular060"
+layout_mode = 2
+theme_type_variation = &"FontRegular060"
 
 [node name="Max" type="Label" parent="Main/H/Combo/H"]
-offset_left = 144.0
-offset_top = 18.0
-offset_right = 144.0
-offset_bottom = 53.0
-size_flags_horizontal = 4
+layout_mode = 2
 size_flags_vertical = 8
-theme_type_variation = "FontRegular024"
+theme_type_variation = &"FontRegular024"
 
 [node name="Accuracy" type="VBoxContainer" parent="Main/H"]
-offset_left = 289.0
-offset_right = 574.0
-offset_bottom = 162.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Text" type="Label" parent="Main/H/Accuracy"]
-offset_right = 285.0
-offset_bottom = 49.0
-theme_type_variation = "FontRegular030"
+layout_mode = 2
+theme_type_variation = &"FontRegular030"
 text = "Accuracy"
-align = 1
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Main/H/Accuracy"]
-offset_top = 53.0
-offset_right = 285.0
-offset_bottom = 106.0
-theme_type_variation = "FontRegular060"
-align = 1
+layout_mode = 2
+theme_type_variation = &"FontRegular060"
+horizontal_alignment = 1
 
 [node name="Performance" type="VBoxContainer" parent="Main"]
 visible = false
-offset_top = 639.0
-offset_right = 574.0
-offset_bottom = 746.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Text" type="Label" parent="Main/Performance"]
-offset_right = 574.0
-offset_bottom = 49.0
-theme_type_variation = "FontRegular030"
+layout_mode = 2
+theme_type_variation = &"FontRegular030"
 text = "Performance"
-align = 1
+horizontal_alignment = 1
 
 [node name="H" type="HBoxContainer" parent="Main/Performance"]
-offset_top = 53.0
-offset_right = 574.0
-offset_bottom = 106.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="Main/Performance/H"]
-offset_left = 188.0
-offset_right = 320.0
-offset_bottom = 53.0
-size_flags_horizontal = 4
-theme_type_variation = "FontRegular060"
+layout_mode = 2
+theme_type_variation = &"FontRegular060"
 text = "1024"
 
 [node name="Max" type="Label" parent="Main/Performance/H"]
-offset_left = 324.0
-offset_top = 18.0
-offset_right = 385.0
-offset_bottom = 53.0
-size_flags_horizontal = 4
+layout_mode = 2
 size_flags_vertical = 8
-theme_type_variation = "FontRegular024"
+theme_type_variation = &"FontRegular024"
 text = "/1024"
 
 [node name="RightBar" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 17.0
 offset_right = 417.0
-theme_type_variation = "SeparationP10"
+theme_type_variation = &"SeparationP10"
 alignment = 1
 
 [node name="HitCount" type="Panel" parent="RightBar"]
-offset_top = 152.0
-offset_right = 400.0
-offset_bottom = 452.0
-rect_min_size = Vector2( 0, 300 )
-theme_type_variation = "_Results"
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_type_variation = &"_Results"
 
 [node name="GridContainer" type="GridContainer" parent="RightBar/HitCount"]
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 11.0
@@ -192,164 +156,127 @@ offset_bottom = -11.0
 columns = 4
 
 [node name="AccurateTexture" type="TextureRect" parent="RightBar/HitCount/GridContainer"]
-offset_right = 92.0
-offset_bottom = 90.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="AccurateAmount" type="Label" parent="RightBar/HitCount/GridContainer"]
-offset_left = 96.0
-offset_top = 28.0
-offset_right = 187.0
-offset_bottom = 62.0
+layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = "FontRegular025"
-align = 1
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="FAccurateTexture" type="TextureRect" parent="RightBar/HitCount/GridContainer"]
-offset_left = 191.0
-offset_right = 282.0
-offset_bottom = 90.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="FAccurateAmount" type="Label" parent="RightBar/HitCount/GridContainer"]
-offset_left = 286.0
-offset_top = 28.0
-offset_right = 377.0
-offset_bottom = 62.0
+layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = "FontRegular025"
-align = 1
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="InaccurateTexture" type="TextureRect" parent="RightBar/HitCount/GridContainer"]
-offset_top = 94.0
-offset_right = 92.0
-offset_bottom = 184.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="InaccurateAmount" type="Label" parent="RightBar/HitCount/GridContainer"]
-offset_left = 96.0
-offset_top = 122.0
-offset_right = 187.0
-offset_bottom = 156.0
+layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = "FontRegular025"
-align = 1
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="FInaccurateTexture" type="TextureRect" parent="RightBar/HitCount/GridContainer"]
-offset_left = 191.0
-offset_top = 94.0
-offset_right = 282.0
-offset_bottom = 184.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="FInaccurateAmount" type="Label" parent="RightBar/HitCount/GridContainer"]
-offset_left = 286.0
-offset_top = 122.0
-offset_right = 377.0
-offset_bottom = 156.0
+layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = "FontRegular025"
-align = 1
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="MissTexture" type="TextureRect" parent="RightBar/HitCount/GridContainer"]
-offset_top = 188.0
-offset_right = 92.0
-offset_bottom = 278.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="MissAmount" type="Label" parent="RightBar/HitCount/GridContainer"]
-offset_left = 96.0
-offset_top = 216.0
-offset_right = 187.0
-offset_bottom = 250.0
+layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = "FontRegular025"
-align = 1
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="Late" type="PanelContainer" parent="RightBar/HitCount/GridContainer"]
-offset_left = 191.0
-offset_top = 211.0
-offset_right = 282.0
-offset_bottom = 255.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_type_variation = "_HitCount"
+theme_type_variation = &"_HitCount"
 
 [node name="Amount" type="Label" parent="RightBar/HitCount/GridContainer/Late"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 86.0
-offset_bottom = 39.0
-theme_type_variation = "FontRegular025"
-align = 1
+layout_mode = 2
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="Early" type="PanelContainer" parent="RightBar/HitCount/GridContainer"]
-offset_left = 286.0
-offset_top = 211.0
-offset_right = 377.0
-offset_bottom = 255.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_type_variation = "_HitCount"
+theme_type_variation = &"_HitCount"
 
 [node name="Amount" type="Label" parent="RightBar/HitCount/GridContainer/Early"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 86.0
-offset_bottom = 39.0
-theme_type_variation = "FontRegular025"
-align = 1
+layout_mode = 2
+theme_type_variation = &"FontRegular025"
+horizontal_alignment = 1
 
 [node name="ErrorBar" type="Panel" parent="RightBar"]
-offset_top = 462.0
-offset_right = 400.0
-offset_bottom = 637.0
-rect_min_size = Vector2( 0, 175 )
-theme_type_variation = "_Results"
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+theme_type_variation = &"_Results"
 
 [node name="MiddleBar" type="ColorRect" parent="RightBar/ErrorBar"]
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 15.0
-offset_top = -1.5
+offset_top = -1.0
 offset_right = -15.0
-offset_bottom = 1.5
-color = Color( 1, 1, 1, 0.392157 )
+offset_bottom = 1.0
+color = Color(1, 1, 1, 0.392157)
 
 [node name="Late" type="Label" parent="RightBar/ErrorBar"]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -56.0
 offset_top = 8.0
-offset_right = -15.0
-offset_bottom = 38.0
-theme_type_variation = "FontRegular020"
+theme_type_variation = &"FontRegular020"
 text = "Late"
 
 [node name="Early" type="Label" parent="RightBar/ErrorBar"]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -62.0
 offset_top = -41.0
-offset_right = -15.0
-offset_bottom = -11.0
-theme_type_variation = "FontRegular020"
+theme_type_variation = &"FontRegular020"
 text = "Early"

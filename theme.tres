@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://dsrqa853ihv5l"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://dsrqa853ihv5l"]
 
 [ext_resource type="FontFile" uid="uid://sxcnkp6br8rh" path="res://fonts/noto_sans_jp-black.otf" id="1_q0y42"]
 [ext_resource type="FontFile" uid="uid://cgk0ss43ojegc" path="res://fonts/noto_sans_jp-bold.otf" id="2_qw8py"]
@@ -61,6 +61,63 @@ bg_color = Color(0.184314, 0.184314, 0.184314, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3sdk"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwjwn"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djal2"]
+bg_color = Color(0, 0, 0, 0.686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.192157, 0.192157, 0.192157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1hm3"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1v3e2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atb3m"]
+bg_color = Color(0.45098, 0.45098, 0.45098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77k8y"]
 bg_color = Color(0.262745, 0.262745, 0.262745, 0.784314)
@@ -133,15 +190,28 @@ FontRegular015/fonts/font = ExtResource("3_fvnm4")
 FontRegular017/base_type = &"Label"
 FontRegular017/font_sizes/font_size = 17
 FontRegular017/fonts/font = ExtResource("3_fvnm4")
+FontRegular020/base_type = &"Label"
+FontRegular020/font_sizes/font_size = 20
+FontRegular020/fonts/font = ExtResource("3_fvnm4")
 FontRegular022/base_type = &"Label"
 FontRegular022/font_sizes/font_size = 22
 FontRegular022/fonts/font = ExtResource("3_fvnm4")
+FontRegular024/base_type = &"Label"
+FontRegular024/colors/font_color = Color(0.45098, 0.45098, 0.45098, 1)
+FontRegular024/font_sizes/font_size = 24
+FontRegular024/fonts/font = ExtResource("3_fvnm4")
+FontRegular025/base_type = &"Label"
+FontRegular025/font_sizes/font_size = 25
+FontRegular025/fonts/font = ExtResource("3_fvnm4")
 FontRegular030/base_type = &"Label"
 FontRegular030/font_sizes/font_size = 30
 FontRegular030/fonts/font = ExtResource("3_fvnm4")
 FontRegular045/base_type = &"Label"
 FontRegular045/font_sizes/font_size = 45
 FontRegular045/fonts/font = ExtResource("3_fvnm4")
+FontRegular060/base_type = &"Label"
+FontRegular060/font_sizes/font_size = 60
+FontRegular060/fonts/font = ExtResource("3_fvnm4")
 HSeparator/styles/separator = SubResource("StyleBoxLine_svrl2")
 HSlider/icons/grabber = ExtResource("4_hy55k")
 HSlider/icons/grabber_highlight = ExtResource("4_hy55k")
@@ -162,6 +232,10 @@ SeparationP07/base_type = &"BoxContainer"
 SeparationP07/constants/separation = 7
 SeparationP08/base_type = &"BoxContainer"
 SeparationP08/constants/separation = 8
+SeparationP10/base_type = &"BoxContainer"
+SeparationP10/constants/separation = 10
+SeparationP15/base_type = &"BoxContainer"
+SeparationP15/constants/separation = 15
 _Bottom/base_type = &"PanelContainer"
 _Bottom/styles/panel = SubResource("StyleBoxFlat_sog0n")
 _BottomButton/base_type = &"Button"
@@ -170,9 +244,20 @@ _BottomButton/fonts/font = ExtResource("3_fvnm4")
 _BottomButton/styles/disabled = SubResource("StyleBoxFlat_1xru2")
 _BottomButton/styles/hover = SubResource("StyleBoxFlat_sseym")
 _BottomButton/styles/normal = SubResource("StyleBoxFlat_j3sdk")
+_HitCount/base_type = &"PanelContainer"
+_HitCount/styles/panel = SubResource("StyleBoxFlat_pwjwn")
+_MainMenu/base_type = &"Button"
+_MainMenu/font_sizes/font_size = 50
+_MainMenu/fonts/font = ExtResource("3_fvnm4")
+_MainMenu/styles/disabled = SubResource("StyleBoxFlat_djal2")
+_MainMenu/styles/hover = SubResource("StyleBoxFlat_r1hm3")
+_MainMenu/styles/normal = SubResource("StyleBoxFlat_1v3e2")
+_MainMenu/styles/pressed = SubResource("StyleBoxFlat_atb3m")
 _PlayButton/base_type = &"Button"
 _PlayButton/styles/hover = SubResource("StyleBoxFlat_77k8y")
 _PlayButton/styles/normal = SubResource("StyleBoxFlat_wq1eb")
+_Results/base_type = &"Panel"
+_Results/styles/panel = SubResource("StyleBoxFlat_bjnn2")
 _Scoreboard/base_type = &"ScrollContainer"
 _Scoreboard/styles/panel = SubResource("StyleBoxFlat_bjnn2")
 _Settings/base_type = &"PanelContainer"
