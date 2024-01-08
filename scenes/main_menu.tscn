@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dihwu6cstimvu"]
+
+[ext_resource type="Texture2D" uid="uid://bvf2wvphe5q1g" path="res://temporary/sdsddsd.png" id="1_xxsnx"]
+
+[node name="MainMenu" type="VBoxContainer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_right = 282.0
+theme_type_variation = &"SeparationP15"
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 193)
+layout_mode = 2
+texture = ExtResource("1_xxsnx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
+text = "Play"
+
+[node name="Edit" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
+disabled = true
+text = "Edit"
+
+[node name="Training" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
+disabled = true
+text = "Training"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
+text = "Options"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"_MainMenu"
+text = "Exit"
