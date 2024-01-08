@@ -4,8 +4,8 @@
 
 [node name="DrumVisual" type="TextureRect"]
 anchor_bottom = 1.0
-margin_right = 254.0
-expand = true
+offset_right = 254.0
+expand_mode = 1
 script = ExtResource( 1 )
 
 [node name="ComboBreakAudio" type="AudioStreamPlayer" parent="."]
@@ -34,26 +34,26 @@ bus = "SFX"
 [node name="LeftDon" type="TextureRect" parent="."]
 anchor_right = 0.5
 anchor_bottom = 1.0
-expand = true
+expand_mode = 1
 
 [node name="LeftKat" type="TextureRect" parent="."]
 anchor_right = 0.5
 anchor_bottom = 1.0
-expand = true
+expand_mode = 1
 flip_h = true
 
 [node name="RightDon" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-expand = true
+expand_mode = 1
 flip_h = true
 
 [node name="RightKat" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-expand = true
+expand_mode = 1
 
 [node name="Combo" type="Label" parent="."]
 anchor_right = 1.0
