@@ -1,8 +1,7 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://gameplay/hit_error.gd" type="Script" id=1]
+[gd_scene format=3 uid="uid://hk6c65pa82j2"]
 
 [node name="HitError" type="ColorRect"]
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -10,29 +9,37 @@ anchor_bottom = 1.0
 offset_left = -207.0
 offset_top = -40.0
 offset_right = 207.0
-color = Color( 0, 0, 0, 0.392157 )
-script = ExtResource( 1 )
+color = Color(0, 0, 0, 0.392157)
 
 [node name="Miss" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.325
 anchor_right = 1.0
 anchor_bottom = 0.675
 
 [node name="HitPoints" type="Control" parent="."]
+layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
 offset_right = -2.0
 
 [node name="Inaccurate" type="ColorRect" parent="HitPoints"]
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.325
 anchor_right = 1.0
 anchor_bottom = 0.675
 
 [node name="Accurate" type="ColorRect" parent="HitPoints/Inaccurate"]
+layout_mode = 1
+anchors_preset = -1
 anchor_bottom = 1.0
 
 [node name="MiddleMarker" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -40,6 +47,8 @@ offset_left = -1.0
 offset_right = 1.0
 
 [node name="AverageHit" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -48,6 +57,6 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
-rect_rotation = 45.0
-rect_pivot_offset = Vector2( 8, 8 )
-color = Color( 1, 1, 1, 0.8 )
+rotation = 0.785398
+pivot_offset = Vector2(8, 8)
+color = Color(1, 1, 1, 0.8)
