@@ -34,6 +34,34 @@ class_name AudioLoader
 ## @tutorial(_report_errors): https://docs.godotengine.org/en/4.2/classes/class_@globalscope.html#enum-globalscope-error
 
 
+## Loads an audio file during runtime.
+## [br][param file_path] The absolute path to the audio file.
+## [br][param return] The playable stream of the audio file. Returns null on failure.
+static func load_file(file_path: String) -> AudioStream:
+	if file_path.begins_with("res://"):
+		return load(file_path) as AudioStream
+
+	match file_path.to_lower().get_extension():
+		"wav":
+			return _load_wav_file(file_path)
+
+		"ogg":
+			return AudioStreamOggVorbis.load_from_file(file_path)
+
+		"mp3":
+			var bytes := FileAccess.get_file_as_bytes(file_path)
+			if bytes.is_empty():
+				_report_errors(file_path)
+				return
+
+			var new_stream := AudioStreamMP3.new()
+			new_stream.data = bytes
+			return new_stream
+
+	push_error("Wrong filetype or format")
+	return
+
+
 ## Converts .wav data from 24 or 32 bits to 16.
 ## [br][param data] The original data from the .wav audio file.
 ## [br][param from] The bits per sample of the original data.
@@ -84,34 +112,6 @@ static func _convert_to_16bit(data: PackedByteArray, from: int) -> PackedByteArr
 
 	print("Took %f seconds for slow conversion" % ((Time.get_ticks_msec() - time) / 1000.0))
 	return data
-
-
-## Loads an audio file during runtime.
-## [br][param file_path] The absolute path to the audio file.
-## [br][param return] The playable stream of the audio file. Returns null on failure.
-static func _load_file(file_path: String) -> AudioStream:
-	if file_path.begins_with("res://"):
-		return load(file_path) as AudioStream
-
-	match file_path.to_lower().get_extension():
-		"wav":
-			return _load_wav_file(file_path)
-
-		"ogg":
-			return AudioStreamOggVorbis.load_from_file(file_path)
-
-		"mp3":
-			var bytes := FileAccess.get_file_as_bytes(file_path)
-			if bytes.is_empty():
-				_report_errors(file_path)
-				return
-
-			var new_stream := AudioStreamMP3.new()
-			new_stream.data = bytes
-			return new_stream
-
-	push_error("Wrong filetype or format")
-	return
 
 
 ## Loads a .wav audio file during runtime.
